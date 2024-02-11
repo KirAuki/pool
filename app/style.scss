@@ -1,0 +1,63 @@
+@import './reset.scss';
+
+@import './components/Nav/navbar';
+@import './components/HomeBanner/homebanner';
+
+@import './components/products/ProductCard/productcard';
+@import './product/product';
+@import './components/CustomButton/custombutton';
+@import './components/products/SetQuantity/setquantity';
+@import './components/products/ProductGallery/productgallery';
+@import './components/Products/Heading/heading';
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.main-content {
+    flex-grow: 1;
+    padding: 1rem;
+    padding-top: 2rem; 
+}
+
+.container {
+    max-width: 1640px;
+    margin-inline: auto;
+}
+
+.horizontal-line {
+    width: 30%;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-color: rgb(203 213 225);
+    border: none;
+    height: 1px;
+}
+
+.image__container {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+
+.products-list{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 2rem;
+    @media (min-width:768px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    @media (min-width:1024px) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    @media (min-width:1280px) {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+    @media (min-width:1536px) {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}

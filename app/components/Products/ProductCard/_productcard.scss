@@ -1,0 +1,38 @@
+.product-card{
+    cursor: pointer;
+    grid-column: span 1 / span 1;
+    padding: 0.5rem;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgb(224, 222, 222) ;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 0.25rem;
+    }
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    &__name {
+        margin-top: 2rem;
+    }
+    &__reviews {
+        margin-top: 2rem;
+    }
+    &__price {
+        margin: 1rem;
+    }
+}
+

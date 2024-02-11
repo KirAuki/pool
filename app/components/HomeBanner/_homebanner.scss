@@ -1,0 +1,36 @@
+.home-banner {
+    position: relative;
+    margin: 0 auto 2rem;
+    color: #ffff;
+    background-image: linear-gradient(to right, #0ea5e9 , #0369a1 );
+    border-radius: 1rem;
+    &__content {
+        margin-inline: auto;
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+        
+    }
+    &__title {
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 2.5rem;
+        margin-bottom: 1rem;
+        @media (min-width: 768px) {
+            font-size: 3rem;
+            line-height: 1; 
+        }
+    };
+    &__desc{
+        font-size: 1.25rem; 
+        line-height: 2rem;
+        margin-bottom: 50px;
+        @media (min-width: 768px) { 
+            font-size: 1.75rem; 
+            line-height: 1;
+        }
+    };
+}

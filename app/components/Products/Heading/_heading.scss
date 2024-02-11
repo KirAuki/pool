@@ -1,0 +1,13 @@
+.heading {
+    &text--center {
+        text-align: center;
+    }
+    &text--start {
+        text-align: start;
+    }
+    &__title {
+        font-weight: 500;
+        font-size: 1.5rem;
+        line-height: 2rem;
+    }
+}

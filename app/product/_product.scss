@@ -1,0 +1,99 @@
+.product-details {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 3rem;
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+    }
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 1rem; 
+        line-height: 1.25rem;
+        color: rgb(107 114 128);
+        & span {
+            font-weight: 600;
+        }
+    }
+    &__name {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+        color: black;
+    }
+
+    &__reviews{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__desc {
+        text-align: justify
+    }
+    &__controls {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    &__quantity {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        & p {
+            font-weight: 600;
+        }
+    }
+    &__addtocart{
+        max-width: 300px;
+    }
+}
+.instock {
+    color: rgb(34 197 94);
+}
+
+.notinstock{
+    color: rgb(239 68 68);
+}
+
+
+
+.product-reviews {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    gap: 1rem;
+
+    &__list {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        margin-top: 0.5rem;
+    }
+
+    &__item {
+        max-width: 600px;
+    }
+
+    &__user {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }  
+
+    &__username {
+        font-weight: 600;
+    }
+
+    &__date {
+        font-weight: 300;
+    }  
+    
+    &__content {
+        margin-top: 0.5rem;
+    }
+    & .horizontal-line {
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+}
