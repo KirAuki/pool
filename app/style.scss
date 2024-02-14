@@ -2,13 +2,14 @@
 
 @import './components/Nav/navbar';
 @import './components/HomeBanner/homebanner';
-
+@import './components/Footer/footer';
 @import './components/products/ProductCard/productcard';
 @import './product/product';
 @import './components/CustomButton/custombutton';
 @import './components/products/SetQuantity/setquantity';
 @import './components/products/ProductGallery/productgallery';
 @import './components/Products/Heading/heading';
+@import './cart/cart';
 
 body {
     display: flex;

@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import "./style.css";
 import NavBar from "./components/Nav/NavBar";
 import Footer from "./components/Footer/Footer";
+import CartProvider from "@/providers/CartProvider";
+import { Toaster } from "react-hot-toast";
 
 const poppins = Poppins({ subsets: ["latin"], weight:['100','200','300','400','500','600','700'] });
 
@@ -19,11 +21,19 @@ export default function RootLayout({
     return (
         <html lang="ru">
             <body className={poppins.className}>
-                <NavBar/>
-                <main className="main-content">
-                    {children}
-                </main>
-                <Footer/>
+                <Toaster toastOptions={{
+                    style: {
+                        background: 'rgb(14	165	233)',
+                        color: '#fff',
+                    }
+                }}/>
+                <CartProvider>
+                    <NavBar/>
+                    <main className="main-content">
+                        {children}
+                    </main>
+                    <Footer/>
+                </CartProvider>
             </body>
         </html>
     );

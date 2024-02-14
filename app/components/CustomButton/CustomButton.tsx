@@ -30,7 +30,9 @@ const CustomButton: React.FC<CustomButtonProps>= ({
         ${custom ? custom : ''} `;
 
     return ( 
-        <button disabled = {disabled} 
+        <button 
+        onClick={onClick}
+        disabled = {disabled} 
         className={buttonClass}
          >
             {Icon && <Icon size={24}/>}

@@ -3,8 +3,11 @@
 import CustomButton from "@/app/components/CustomButton/CustomButton";
 import ProductGallery from "@/app/components/Products/ProductGallery/ProductGallery";
 import SetQuantity from "@/app/components/Products/SetQuantity/SetQuantity";
+import { useCart } from "@/hooks/useCart";
 import { Rating } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useState } from "react";
+import { MdCheckCircle } from "react-icons/md";
 
 interface ProductDetailsProps {
     product: any;
@@ -16,31 +19,45 @@ export type CartProductType = {
     description: string,
     category: string,
     producer: string,
-    selectedImg: string,
+    image: string,
     quantity: number,
     price: number,
 }
 
-export type SelectedImgType = {
-    image: string
-}
 
 const Horizontal = () => {
     return <hr className="horizontal-line"/>
 }
 
 const ProductDetails:React.FC<ProductDetailsProps> = ({product}) => {
-
+    const {cartTotalQty} = useCart()
+    const {handleAddProductToCart, cartProducts} = useCart()
+    const [isProductInCart, setIsProductInCart] = useState(false);
     const [cartProduct, setCartProduct] = useState<CartProductType>({
         id: product.id,
         name: product.name,
         description: product.description,
         category: product.category,
         producer: product.producer,
-        selectedImg: {...product.images[0]},
+        image: {...product.images[0]},
         quantity: 1,
         price: product.price,
     })
+
+    const router = useRouter()
+
+    console.log( cartTotalQty)
+
+    useEffect(() => {
+        if(cartProducts){
+            const existingIndex = cartProducts.findIndex((item) => item.id === product.id)
+
+            if(existingIndex > -1) {
+                setIsProductInCart(true);
+            }
+            console.log('useproductdetails',cartProducts)
+        }
+    }, [cartProducts])
 
     const productRating = product.reviews.reduce((acc: number,item: any) => 
     item.rating + acc, 0) / product.reviews.length
@@ -98,15 +115,32 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({product}) => {
                 </p>
                 <div className="product-details__controls">
                     <Horizontal />
-                    <SetQuantity 
-                        cartProduct={cartProduct}
-                        handleQtyDecrease={handleQtyDecrease}
-                        handleQtyIncrease={handleQtyIncrease}
-                    />
-                    <Horizontal />
-                    <div className="product-details__addtocart">
-                        <CustomButton label="Добавить в корзину" onClick={() => {}}/>
-                    </div>
+                    {isProductInCart ? (
+                        <>
+                        <p className="product-details__message">
+                            <MdCheckCircle size={20}/>
+                            <span>Товар добавлен в корзину</span>
+                        </p>
+                        <div className="product-details__gotocart">
+                            <CustomButton label="Перейти в корзину" alternative onClick={() => {
+                                router.push('/cart')
+                            }}/>
+                        </div>
+                        </>
+                    
+                    ) : (
+                        <>
+                            <SetQuantity 
+                                cartProduct={cartProduct}
+                                handleQtyDecrease={handleQtyDecrease}
+                                handleQtyIncrease={handleQtyIncrease}
+                            />
+                            <Horizontal />
+                            <div className="product-details__addtocart">
+                                <CustomButton label="Добавить в корзину" onClick={() => handleAddProductToCart(cartProduct)}/>
+                            </div>
+                        </>
+                    )};
                 </div>
             </div>
         </div> );
