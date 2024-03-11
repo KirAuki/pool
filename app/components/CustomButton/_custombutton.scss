@@ -17,7 +17,7 @@
     &:hover {
         opacity: 80%;
     }
-    &.disabled {
+    &:disabled {
         opacity: 70%;
         cursor: not-allowed;
     }

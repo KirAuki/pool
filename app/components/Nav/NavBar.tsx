@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Container from "../Container";
+import CartCount from "./CartCount";
+import AuthModal from "../AuthModal/AuthModal";
 
 const NavBar = () => {
     return (
@@ -13,12 +15,10 @@ const NavBar = () => {
                         Search   
                     </Link>
                     <div className="nav-menu__user">
-                        <Link className="nav-menu__link" href='/'>
-                            Cart   
+                        <Link className="nav-menu__link" href='/cart'>
+                            <CartCount/> 
                         </Link>
-                        <Link className="nav-menu__link" href='/'>
-                            User    
-                        </Link>
+                        <AuthModal/>
                     </div>
                 </div>
             </Container>

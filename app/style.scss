@@ -10,6 +10,9 @@
 @import './components/products/ProductGallery/productgallery';
 @import './components/Products/Heading/heading';
 @import './cart/cart';
+@import './cart/itemcontent';
+@import './components/CustomInputs/custominput';
+@import './components/AuthModal/authmodal';
 
 body {
     display: flex;

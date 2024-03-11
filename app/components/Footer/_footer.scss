@@ -4,13 +4,20 @@
     font-size: 0.875rem;
     line-height: 1.25rem;
     margin-top: 4rem;
+    padding: 0 1rem;
     &__container {
         display: flex;
         flex-direction: column;
         padding: 4rem 0 2rem;
+        justify-content: space-between;
         @media(min-width: 768px) {
             flex-direction: row;
         }
+    }
+    &__title {
+        font-size: 1rem;
+        line-height: 1.5rem; 
+        margin-bottom: 0.5rem;
     }
     &__list {
         width: 100%;
@@ -27,5 +34,23 @@
         @media(min-width: 1024px) {
             width: 16.666667%;
         }
+        & a {
+            color: #e2e8f0;
+        }
+    }
+    &__about-us {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        @media(min-width: 768px) {
+            width: 33.333333%;
+            margin-bottom: 0;
+        }
+        & p {
+            margin-bottom: 0.5rem;
+        }
+    }
+    &__follow-us {
+        display: flex;
+        gap: 0.5rem;
     }
 }

@@ -39,14 +39,14 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({product}) => {
         description: product.description,
         category: product.category,
         producer: product.producer,
-        image: {...product.images[0]},
+        image: product.images[0].image,
         quantity: 1,
         price: product.price,
     })
 
     const router = useRouter()
 
-    console.log( cartTotalQty)
+    console.log( cartProduct )
 
     useEffect(() => {
         if(cartProducts){
@@ -55,7 +55,6 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({product}) => {
             if(existingIndex > -1) {
                 setIsProductInCart(true);
             }
-            console.log('useproductdetails',cartProducts)
         }
     }, [cartProducts])
 
@@ -140,10 +139,10 @@ const ProductDetails:React.FC<ProductDetailsProps> = ({product}) => {
                                 <CustomButton label="Добавить в корзину" onClick={() => handleAddProductToCart(cartProduct)}/>
                             </div>
                         </>
-                    )};
+                    )}
                 </div>
             </div>
-        </div> );
+        </div> )
 }
  
 export default ProductDetails;

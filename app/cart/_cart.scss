@@ -1,4 +1,4 @@
-.cart-client{
+.cart-client {
 
     &--empty {
         display: flex;
@@ -28,24 +28,7 @@
         line-height: 1rem;
     }
 
-    &__list {
 
-    }
-
-    &__item {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-        gap: 1rem;
-        border-top: 1.5px solid rgb(229 233 239);
-        padding: 1rem 0;
-        align-items: center;
-        font-size: 0.75rem;
-        line-height: 1rem;
-        @media (min-width: 768px) {
-            font-size: 0.875rem;
-            line-height: 1.25rem;
-        }
-    }
     &__actions {
         display: flex;
         justify-content: space-between;
@@ -71,7 +54,7 @@
         display: flex;
         justify-content: space-between;
         width: 100%;
-        font-weight: 500;
+        font-weight: 600;
         font-size: 1rem;
         line-height: 1.5rem;
     }

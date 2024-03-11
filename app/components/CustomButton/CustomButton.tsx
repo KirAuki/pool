@@ -22,18 +22,16 @@ const CustomButton: React.FC<CustomButtonProps>= ({
     onClick,
 }) => {
 
-    const buttonClass = `
-        custom-button 
-        ${disabled ? 'disabled' : ''} 
-        ${alternative ? 'alternative' : ''} 
-        ${small ? 'small' : ''} 
-        ${custom ? custom : ''} `;
 
     return ( 
         <button 
         onClick={onClick}
         disabled = {disabled} 
-        className={buttonClass}
+        className={`
+        custom-button 
+        ${alternative ? 'alternative' : ''} 
+        ${small ? 'small' : ''} 
+        ${custom ? custom : ''} `}
          >
             {Icon && <Icon size={24}/>}
             {label}
